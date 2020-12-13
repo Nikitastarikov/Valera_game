@@ -1,18 +1,11 @@
-require 'rspec'
-require_relative '../lib/valera'
+require './lib/valera'
 
 RSpec.describe Valera do
   describe 'Valera' do
     valera = Valera.new
     context 'check_true' do
-      valera.stats = {
-        'health' => 70,
-        'mana' => 10,
-        'fun' => -10,
-        'tire' => 25,
-        'money' => 2500
-      }
-      it { expect(valera.check_condition).to eq true }
+      valera.stats['health'] = 0
+      it { expect(valera.check_hp).to eq true }
     end
   end
 end
