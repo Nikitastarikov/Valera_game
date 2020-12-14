@@ -1,25 +1,12 @@
 require 'yaml'
-require_relative 'menu/save_or_load_the_game/loader'
 
 class Valera
   attr_accessor :stats
 
-  def initialize(path_to_file = 'config_start_game')
+  def initialize(path_to_file = 'config/config_start_game')
     file_name = File.expand_path("#{path_to_file}.yaml", __dir__)
-
     @stats = YAML.safe_load(File.open(file_name))
     @stats['alive'] = true
-  end
-
-  def print_stats
-    system('clear')
-    puts "\tValera's condition:"
-    puts "health = #{@stats['health']}"
-    puts "mana = #{@stats['mana']}"
-    puts "fun = #{@stats['fun']}"
-    puts "fatigue = #{@stats['fatigue']}"
-    puts "money = #{@stats['money']}"
-    puts '-----------------------'
   end
 
   def condition_repairs

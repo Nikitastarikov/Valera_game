@@ -1,9 +1,11 @@
-module Move
+class Move
   def work(stats)
-    stats['fun'] -= 5
-    stats['mana'] -= 30
-    stats['money'] += 100
-    stats['fatigue'] += 70
+    if (stats['mana'] < 50) && (stats['fatigue'] < 10)
+      stats['fun'] -= 5
+      stats['mana'] -= 30
+      stats['money'] += 100
+      stats['fatigue'] += 70
+    end
     stats
   end
 
@@ -15,29 +17,35 @@ module Move
   end
 
   def relax_at_home(stats)
-    stats['fun'] -= 1
-    stats['mana'] += 30
-    stats['fatigue'] += 10
-    stats['health'] -= 5
-    stats['money'] -= 20
+    if stats['money'] >= 20
+      stats['fun'] -= 1
+      stats['mana'] += 30
+      stats['fatigue'] += 10
+      stats['health'] -= 5
+      stats['money'] -= 20
+    end
     stats
   end
 
   def go_in_bar(stats)
-    stats['fun'] += 1
-    stats['mana'] += 60
-    stats['fatigue'] += 40
-    stats['health'] -= 10
-    stats['money'] -= 100
+    if stats['money'] >= 100
+      stats['fun'] += 1
+      stats['mana'] += 60
+      stats['fatigue'] += 40
+      stats['health'] -= 10
+      stats['money'] -= 100
+    end
     stats
   end
 
   def drink_with_marginals(stats)
-    stats['fun'] += 5
-    stats['mana'] += 90
-    stats['fatigue'] += 80
-    stats['health'] -= 80
-    stats['money'] -= 150
+    if stats['money'] >= 150
+      stats['fun'] += 5
+      stats['mana'] += 90
+      stats['fatigue'] += 80
+      stats['health'] -= 80
+      stats['money'] -= 150
+    end
     stats
   end
 

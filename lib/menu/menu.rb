@@ -1,22 +1,12 @@
 require_relative '../input'
+require_relative '../output/output'
+require_relative 'save_or_load_the_game/saver'
+require_relative 'save_or_load_the_game/loader'
 
 class Menu
   include Input
+  include Output
   attr_accessor :step
-
-  def print_menu(flag)
-    system('clear')
-    puts "\tMenu"
-    puts '1 - New game'
-    puts '2 - load game'
-    if flag == true
-      puts '3 - exit'
-    else
-      puts '3 - save game'
-      puts '4 - continue the game'
-      puts '5 - exit'
-    end
-  end
 
   def menu(flag, valera)
     @step = 0
@@ -55,7 +45,7 @@ class Menu
     else
       print 'there is no such file'
       sleep 2
-      menu(flag, valera)
+      valera = menu(flag, valera)
     end
     valera
   end
