@@ -5,34 +5,34 @@ class Actions
   attr_accessor :act
 
   @act = {
-    '1' => lambda { |valera|
-      @move_ob.work(valera.stats)
+    '1' => lambda { |stats|
+      @move_ob.work(stats)
     },
-    '2' => lambda { |valera|
-             @move_ob.to_contemplate_nature(valera.stats)
+    '2' => lambda { |stats|
+             @move_ob.to_contemplate_nature(stats)
            },
-    '3' => lambda { |valera|
-             @move_ob.relax_at_home(valera.stats)
+    '3' => lambda { |stats|
+             @move_ob.relax_at_home(stats)
            },
-    '4' => lambda { |valera|
-             @move_ob.go_in_bar(valera.stats)
+    '4' => lambda { |stats|
+             @move_ob.go_in_bar(stats)
            },
-    '5' => lambda { |valera|
-             @move_ob.drink_with_marginals(valera.stats)
+    '5' => lambda { |stats|
+             @move_ob.drink_with_marginals(stats)
            },
-    '6' => lambda { |valera|
-             @move_ob.sing_in_metro(valera.stats)
+    '6' => lambda { |stats|
+             @move_ob.sing_in_metro(stats)
            },
-    '7' => lambda { |valera|
-             @move_ob.go_to_sleep(valera.stats)
+    '7' => lambda { |stats|
+             @move_ob.go_to_sleep(stats)
            },
-    '8' => lambda { |valera|
-             valera.stats
+    '8' => lambda { |stats|
+             stats
            }
   }
 
-  def self.move(valera, step)
+  def self.move(stats, step)
     @move_ob = Move.new
-    @act[step.to_s].call(valera)
+    @act[step.to_s].call(stats)
   end
 end

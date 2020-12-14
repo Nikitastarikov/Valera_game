@@ -1,13 +1,13 @@
 require_relative 'lib/valera'
 require_relative 'lib/menu/menu'
 require_relative 'lib/actions/actions'
-require_relative 'lib/output/output'
-require_relative 'lib/input'
+require_relative 'lib/input_output/output'
+require_relative 'lib/input_output/input'
 
 class Game
   include Input
   include Output
-  attr_accessor :valera, :menu, :actions, :menu_flag
+  attr_accessor :valera, :menu, :menu_flag
 
   def initialize
     @valera = Valera.new
@@ -23,7 +23,7 @@ class Game
       next unless @valera.stats['alive'] == false
 
       system('clear')
-      game_over
+      game_over(valera)
       @valera = @menu.menu(true, @valera)
     end
   end
@@ -35,25 +35,10 @@ class Game
     else
       step = data_input(step, 1, 8)
       @menu_flag = true if step == 8
-      valera.stats = Actions.move(valera, step)
+      valera.stats = Actions.move(valera.stats, step)
       valera.condition_repairs
       valera.check_condition
     end
-  end
-
-  def game_over
-    puts "\tGAME OVER"
-    print "\n"
-    if @valera.check_hp
-      puts 'Valera prosto pomer, zemly betonom'
-    elsif @valera.check_fun
-      puts "Valera was in misfortune for a long time and \nhe decided to commit suicide"
-    elsif @valera.check_mana
-      puts "excess mana awakened magical abilities, \nValera went to Hogwarts(belka karoche)"
-    elsif @valera.check_fatigue
-      puts 'Valera pomer of fatigue, zemly betonom'
-    end
-    sleep 5
   end
 end
 game = Game.new

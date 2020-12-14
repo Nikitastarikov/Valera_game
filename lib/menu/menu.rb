@@ -1,7 +1,7 @@
-require_relative '../input'
-require_relative '../output/output'
 require_relative 'save_or_load_the_game/saver'
 require_relative 'save_or_load_the_game/loader'
+require_relative '../input_output/output'
+require_relative '../input_output/input'
 
 class Menu
   include Input
