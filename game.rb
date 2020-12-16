@@ -36,8 +36,8 @@ class Game
       step = data_input(step, 1, 8)
       @menu_flag = true if step == 8
       valera.stats = Actions.move(valera.stats, step)
-      valera.condition_repairs
-      valera.check_condition
+      valera.condition_repairs!
+      valera.check_condition!
     end
   end
 end

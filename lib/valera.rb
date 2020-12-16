@@ -9,33 +9,33 @@ class Valera
     @stats['alive'] = true
   end
 
-  def condition_repairs
+  def condition_repairs!
     @stats['health'] = 100 if @stats['health'] > 100
     @stats['fun'] = 10 if @stats['fun'] > 10
     @stats['mana'] = 0 if (@stats['mana']).negative?
     @stats['fatigue'] = 0 if (@stats['fatigue']).negative?
   end
 
-  def check_condition
-    if check_hp || check_fun \
-      || check_mana || check_fatigue
+  def check_condition!
+    if check_hp? || check_fun? \
+      || check_mana? || check_fatigue?
       @stats['alive'] = false
     end
   end
 
-  def check_hp
+  def check_hp?
     @stats['health'] <= 0
   end
 
-  def check_fun
+  def check_fun?
     @stats['fun'] <= -10
   end
 
-  def check_mana
+  def check_mana?
     @stats['mana'] >= 100
   end
 
-  def check_fatigue
+  def check_fatigue?
     @stats['fatigue'] >= 100
   end
 end

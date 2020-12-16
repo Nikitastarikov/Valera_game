@@ -45,13 +45,13 @@ module Output
   def game_over(valera)
     puts "\tGAME OVER"
     print "\n"
-    if valera.check_hp
+    if valera.check_hp?
       puts 'Valera prosto pomer, zemly betonom'
-    elsif valera.check_fun
+    elsif valera.check_fun?
       puts "Valera was in misfortune for a long time and \nhe decided to commit suicide"
-    elsif valera.check_mana
+    elsif valera.check_mana?
       puts "excess mana awakened magical abilities, \nValera went to Hogwarts(belka karoche)"
-    elsif valera.check_fatigue
+    elsif valera.check_fatigue?
       puts 'Valera pomer of fatigue, zemly betonom'
     end
     sleep 5
