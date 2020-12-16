@@ -3,13 +3,19 @@ require './lib/valera'
 
 RSpec.describe Loader do
   describe 'Loader' do
-    valera = Valera.new
-    loader = Loader.new('testsave')
-    context 'check_valid_path' do
-      it { expect(loader.valid?).to eq true }
+
+    let(:loader) do
+      loader = Loader.new('testsave')
     end
-    context 'check_loader' do
-      stats = {
+
+    let(:valera_stats) do
+      valera = Valera.new
+      valera = loader.load
+      valera.stats
+    end
+
+    let(:stats) do
+      {
         'health' => 100,
         'mana' => 0,
         'fun' => 10,
@@ -17,8 +23,19 @@ RSpec.describe Loader do
         'money' => 10,
         'alive' => true
       }
-      valera = loader.load
-      it { expect(valera.stats).to eq stats }
+    end
+
+    let(:valid) do
+      loader.valid?
+    end
+    
+    context 'check_valid_path' do
+      it { expect(valid).to eq true }
+    end
+    context 'check_loader' do
+      
+      
+      it { expect(valera_stats).to eq stats }
     end
   end
 end
