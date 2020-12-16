@@ -11,7 +11,7 @@ class Menu
   def menu(flag, valera)
     @step = 0
     print_menu(flag)
-    @step = if flag == true
+    @step = if flag
               data_input(@step, 1, 3)
             else
               data_input(@step, 1, 5)

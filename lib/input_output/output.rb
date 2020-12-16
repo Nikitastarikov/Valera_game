@@ -6,7 +6,7 @@ module Output
     puts "\tMenu"
     puts '1 - New game'
     puts '2 - load game'
-    if flag == true
+    if flag
       puts '3 - exit'
     else
       puts '3 - save game'
