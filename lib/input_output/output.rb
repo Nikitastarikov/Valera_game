@@ -29,7 +29,7 @@ module Output
   def print_actions(stats)
     puts 'what are we going to do?'
     print '1 - work '
-    print "(can't, because you buhoy and ustal)" unless (stats['mana'] < 50) && (stats['fatigue'] < 10)
+    print "(can't, because you buhoy or ustal)" unless (stats['mana'] < 50) && (stats['fatigue'] < 10)
     puts "\n2 - to contemplate nature"
     print '3 - relax at home '
     no_money(stats, 20)

@@ -6,8 +6,8 @@ class Actions
 
   @act = {
     '1' => lambda { |stats|
-      @move_ob.work(stats)
-    },
+             @move_ob.work(stats)
+           },
     '2' => lambda { |stats|
              @move_ob.to_contemplate_nature(stats)
            },
