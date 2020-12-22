@@ -2,9 +2,8 @@ require './lib/actions/actions'
 require './lib/valera'
 
 RSpec.describe Actions do
-
-  let(:stats_start_1) do
-    stats = {
+  let(:stats) do
+    {
       'health' => 100,
       'fun' => 5,
       'mana' => 0,
@@ -12,99 +11,58 @@ RSpec.describe Actions do
       'money' => 20,
       'alive' => true
     }
-    stats = Actions.move(stats, '1')
-    stats['fun']
+  end
+
+  let(:stats_start_1) do
+    stats_loc = stats
+    stats_loc = Actions.move(stats_loc, '1')
+    stats_loc['fun']
   end
 
   let(:stats_start_2) do
-    stats = {
-      'health' => 100,
-      'fun' => 5,
-      'mana' => 0,
-      'fatigue' => 0,
-      'money' => 20,
-      'alive' => true
-    }
-    stats = Actions.move(stats, '2')
-    stats['fun']
+    stats_loc = stats
+    stats_loc = Actions.move(stats_loc, '2')
+    stats_loc['fun']
   end
 
   let(:stats_start_3) do
-    stats = {
-      'health' => 100,
-      'fun' => 5,
-      'mana' => 0,
-      'fatigue' => 0,
-      'money' => 20,
-      'alive' => true
-    }
-    stats = Actions.move(stats, '3')
-    stats['fun']
+    stats_loc = stats
+    stats_loc = Actions.move(stats_loc, '3')
+    stats_loc['fun']
   end
 
   let(:stats_start_4) do
-    stats = {
-      'health' => 100,
-      'fun' => 5,
-      'mana' => 0,
-      'fatigue' => 0,
-      'money' => 100,
-      'alive' => true
-    }
-    stats = Actions.move(stats, '4')
-    stats['fun']
+    stats_loc = stats
+    stats_loc['money'] = 100
+    stats_loc = Actions.move(stats_loc, '4')
+    stats_loc['fun']
   end
 
   let(:stats_start_5) do
-    stats = {
-      'health' => 100,
-      'fun' => 5,
-      'mana' => 0,
-      'fatigue' => 0,
-      'money' => 150,
-      'alive' => true
-    }
-    stats = Actions.move(stats, '5')
-    stats['fun']
+    stats_loc = stats
+    stats_loc['money'] = 150
+    stats_loc = Actions.move(stats_loc, '5')
+    stats_loc['fun']
   end
 
   let(:stats_start_6) do
-    stats = {
-      'health' => 100,
-      'fun' => 5,
-      'mana' => 50,
-      'fatigue' => 0,
-      'money' => 20,
-      'alive' => true
-    }
-    stats = Actions.move(stats, '6')
-    stats['fun']
+    stats_loc = stats
+    stats_loc['mana'] = 50
+    stats_loc = Actions.move(stats_loc, '6')
+    stats_loc['fun']
   end
 
   let(:stats_start_7) do
-    stats = {
-      'health' => 100,
-      'fun' => 5,
-      'mana' => 80,
-      'fatigue' => 0,
-      'money' => 20,
-      'alive' => true
-    }
-    stats = Actions.move(stats, '7')
-    stats['fun']
+    stats_loc = stats
+    stats_loc['mana'] = 80
+    stats_loc = Actions.move(stats_loc, '7')
+    stats_loc['fun']
   end
 
   let(:stats_start_8) do
-    stats = {
-      'health' => 100,
-      'fun' => 5,
-      'mana' => 0,
-      'fatigue' => 0,
-      'money' => 20,
-      'alive' => true
-    }
-    stats = Actions.move(stats, '8')
-    stats['fun']
+    stats_loc = stats
+    stats_loc = Actions.move(stats_loc, '8')
+    stats_loc['fun']
   end
 
   describe 'Actions' do

@@ -3,34 +3,33 @@ require './lib/valera'
 RSpec.describe Valera do
   describe 'Valera' do
     let(:valera) do
-      valera = Valera.new
-      valera
+      Valera.new
     end
 
     let(:valera_check_hp) do
       valera.stats['health'] = 1000
       valera.condition_repairs!
       valera.check_hp?
-    end 
+    end
 
     let(:valera_check_fun) do
       valera.stats['fun'] = -10
       valera.check_fun?
-    end 
+    end
 
     let(:valera_check_mana) do
       valera.stats['mana'] = 100
       valera.check_mana?
-    end 
+    end
 
     let(:valera_check_fatigue) do
       valera.stats['fatigue'] = 100
       valera.check_fatigue?
-    end 
+    end
 
     let(:valera_check_alive) do
       valera.stats['alive']
-    end 
+    end
 
     context 'check_hp' do
       it { expect(valera_check_hp).to eq false }
